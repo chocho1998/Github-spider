@@ -31,8 +31,6 @@ def python_spider(start, finish, keyword):
             name = username_filename[0].text.split('/')
             username = name[0]
             filename = name[1]
-            # print(username) #帳號名稱
-            # print(filename) #資料夾名稱
             
             try:
                 print(content[0].text.strip()) #內文
@@ -60,7 +58,7 @@ def python_spider(start, finish, keyword):
             ws.append(course)
             
         
-        print(f'!!!!!!!!!!!!!!!!!!!!- Page {page} - Download complete -!!!!!!!!!!!!!!!!!!!!\n')
+        print(f'------------------------------------- Page {page} - Download complete ----------------------------------------- \n')
         page += 1
         
         time.sleep(breaktime)
@@ -74,18 +72,19 @@ try:
     keyword = "selenium" #關鍵字
     start = 1 #起始頁
     end = 100 #終止頁
-    breaktime = 10
+    breaktime = 10 #每頁間隔時間
+    
     print(f'Github 關鍵字搜尋: {keyword}')
     python_spider(start, end, keyword)
 except KeyboardInterrupt:
     print('Stop')
 
 #Excel存檔
-path = 'E:/VS Code/Python Beautifulsoup/Github 關鍵字文章爬取/Data'
+path = '你要存取檔案的路徑'
 try:
     if path:
         os.chdir(path)
-        wb.save(f'Github Keyword - {keyword}.xlsx')
+        wb.save(f'Github Spider - {keyword}.xlsx')
         print('Finished!')
 except PermissionError:
     print('檔案已被開啟，關閉後按enter鍵')
