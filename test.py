@@ -12,6 +12,7 @@ def python_spider(start, finish, keyword):
 
     for i in range(finish-start+1):
         #頁碼
+        ws.append([""])
         ws.append([f"第{str(page)}頁"])
         
         #主網頁
@@ -40,7 +41,7 @@ def python_spider(start, finish, keyword):
             
             # print(updated[0].text) #上傳時間
             print("https://github.com/" + address[0]['href']) #網址
-            print('--------------------------------------------------\n')
+            print('--------------------------------------------\n')
 
             # for Excel
             
@@ -69,7 +70,7 @@ def python_spider(start, finish, keyword):
 
 #抓取資料
 try:
-    keyword = "selenium" #關鍵字
+    keyword = "Python" #關鍵字
     start = 1 #起始頁
     end = 100 #終止頁
     breaktime = 10 #每頁間隔時間
